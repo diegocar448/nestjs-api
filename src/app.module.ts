@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { Transaction } from './transactions/entities/transaction.entity';
-// import { TransactionsModule } from './transactions/transactions.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 
 @Module({
@@ -25,7 +25,7 @@ import { Transaction } from './transactions/entities/transaction.entity';
         force: true,
       },
     })
-    // TransactionsModule
+    //TransactionsModule
   ],
   controllers: [AppController],
   providers: [AppService],
