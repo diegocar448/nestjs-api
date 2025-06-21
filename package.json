@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
-    "@nestjs/config": "^1.0.1",
+    "@nestjs/config": "^1.2.1",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/microservices": "^8.0.6",
@@ -33,14 +33,14 @@
     "class-validator": "^0.13.1",
     "date-fns": "^2.23.0",
     "kafkajs": "^1.15.0",
-    "mysql2": "^2.3.0",
+    "mysql2": "^2.3.3",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "sequelize": "^6.6.5",
-    "sequelize-typescript": "^2.1.0"
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -50,7 +50,7 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.0.0",
     "@types/passport-jwt": "^3.0.6",
-    "@types/sequelize": "^4.28.10",
+    "@types/sequelize": "^4.28.20",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
