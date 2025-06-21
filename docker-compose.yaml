@@ -17,8 +17,12 @@ services:
 
   db:
     build: ./.docker/mysql
+    # se o BD ter algum problema ele vai reiniciar automaticamente
     restart: always
+    # habilitar o terminal p acesso mysql
     tty: true
+    # com volumes fazemos o backup do BD no proprio projeto ambiente dev
+    # qdo subir container não vai perder os dados
     volumes:
       - ./.docker/dbdata:/var/lib/mysql
     environment:
