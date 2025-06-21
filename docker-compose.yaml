@@ -2,7 +2,9 @@ version: '3'
 
 services:
   app:
+    # o "." no build indica que será gerado do arquivo Dockerfile que esta no mesmo diretório
     build: .
+    # após o container terminar de subir, rodará os comandos do arquivo entrypoint
     entrypoint: dockerize -wait tcp://db:3306 -timeout 40s ./.docker/entrypoint.sh
     ports:
       - 3000:3000
@@ -10,15 +12,15 @@ services:
       - .:/home/node/app
     depends_on: 
       - db
-    extra_hosts: 
-      - "host.docker.internal:172.17.0.1"
+    # extra_hosts: 
+    #   - "host.docker.internal:172.17.0.1"
 
   db:
     build: ./.docker/mysql
     restart: always
     tty: true
-    # volumes:
-      #- ./.docker/dbdata:/var/lib/mysql
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=fin
       - MYSQL_ROOT_PASSWORD=root
