@@ -17,19 +17,31 @@ export enum TransactionType {
   DEBIT = 'debit',
 }
 
+interface TransactionAttributes {
+  id: string;
+  payment_date: Date;
+  name: string;
+  description: string;
+  category: TransactionCategory;
+  amount: number;
+  type: string;
+}
+
+type TransactionCreationAttributes = Omit<TransactionAttributes, 'id'>; // o ID é gerado automaticamente
+
 @Table({
   tableName: 'transactions',
   createdAt: 'created_at',
   updatedAt: 'updated_at',
 })
-
-// export class Transaction {
-export class Transaction extends Model {
+export class Transaction
+  extends Model<TransactionAttributes, TransactionCreationAttributes>
+  implements TransactionAttributes
+{
   @PrimaryKey
   @Column({ type: DataType.UUID, defaultValue: DataType.UUIDV4 })
   id: string;
 
-  //não permitir campo nulo
   @Column({ allowNull: false })
   payment_date: Date;
 

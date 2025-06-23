@@ -6,7 +6,6 @@ import { ConfigModule } from '@nestjs/config';
 import { Transaction } from './transactions/entities/transaction.entity';
 import { TransactionsModule } from './transactions/transactions.module';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -20,12 +19,8 @@ import { TransactionsModule } from './transactions/transactions.module';
       models: [Transaction],
       autoLoadModels: true,
       synchronize: true,
-      sync:{
-        alter: true,
-        force: true,
-      },
-    })
-    //TransactionsModule
+    }),
+    TransactionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

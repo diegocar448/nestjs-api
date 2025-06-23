@@ -9,7 +9,7 @@ export class TransactionsService {
     @InjectModel(Transaction) private transactionModel: typeof Transaction,
   ) {}
 
-  create(createTransactionDto: CreateTransactionDto) {
+  create(createTransactionDto: CreateTransactionDto){
     return this.transactionModel.create(createTransactionDto);
   }
  
