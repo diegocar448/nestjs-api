@@ -1,4 +1,7 @@
-import { TransactionCategory } from '../entities/transaction.entity';
+import {
+  TransactionCategory,
+  TransactionType,
+} from '../entities/transaction.entity';
 
 export class CreateTransactionDto {
   payment_date: Date;
@@ -6,5 +9,5 @@ export class CreateTransactionDto {
   description: string;
   category: TransactionCategory;
   amount: number;
-  type: string;
+  type: TransactionType;
 }
