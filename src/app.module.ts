@@ -19,6 +19,9 @@ import { TransactionsModule } from './transactions/transactions.module';
       models: [Transaction],
       autoLoadModels: true,
       synchronize: true,
+      sync: {
+        alter: true,
+      },
     }),
     TransactionsModule,
   ],

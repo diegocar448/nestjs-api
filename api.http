@@ -18,11 +18,11 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHam1iVF
 Content-Type: application/json
 
 {
-  "payment_date": "2021-01-01",
+  "payment_date": "2025-06-23",
   "name": "Nova conta 1",
   "description": "Descrição",
   "category": "category1",
-  "amount": 30,
+  "amount": 40,
   "type": "debit"
 }
 
