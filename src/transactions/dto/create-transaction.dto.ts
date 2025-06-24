@@ -1,7 +1,15 @@
-import { IsISO8601, IsNotEmpty, MaxLength, IsString } from 'class-validator';
+import {
+  IsISO8601,
+  IsNotEmpty,
+  MaxLength,
+  IsString,
+  IsIn,
+} from 'class-validator';
 import {
   TransactionCategory,
+  TransactionCategoryList,
   TransactionType,
+  TransactionTypeList,
 } from '../entities/transaction.entity';
 
 export class CreateTransactionDto {
@@ -19,12 +27,14 @@ export class CreateTransactionDto {
   @IsNotEmpty()
   description: string;
 
+  @IsIn(TransactionCategoryList)
   @IsNotEmpty()
   category: TransactionCategory;
 
   @IsNotEmpty()
   amount: number;
 
+  @IsIn(TransactionTypeList)
   @IsNotEmpty()
   type: TransactionType;
 }

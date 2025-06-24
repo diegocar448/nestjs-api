@@ -13,14 +13,15 @@ export enum TransactionCategory {
 }
 
 //transformar o ENUM em um array de valores
-export const TransactionCategoryList = Object.values(TransactionCategory);
+export const TransactionCategoryList: string[] =
+  Object.values(TransactionCategory);
 
 export enum TransactionType {
   CREDIT = 'credit',
   DEBIT = 'debit',
 }
 //transformar o ENUM em um array de valores
-export const TransactionTypeList = Object.values(TransactionType);
+export const TransactionTypeList: string[] = Object.values(TransactionType);
 
 interface TransactionAttributes {
   id: string;
