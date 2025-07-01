@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { Transaction } from './transactions/entities/transaction.entity';
 import { TransactionsModule } from './transactions/transactions.module';
 import { Account } from './accounts/entities/account.entity';
+import { AccountsModule } from './accounts/accounts.module';
 
 @Module({
   imports: [
@@ -22,9 +23,11 @@ import { Account } from './accounts/entities/account.entity';
       synchronize: true,
       sync: {
         alter: true,
+        force: true
       },
     }),
     TransactionsModule,
+    AccountsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

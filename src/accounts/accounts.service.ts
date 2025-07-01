@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { InjectModel } from '@nestjs/sequelize';
 import { Account } from './entities/account.entity';
 import { Injectable } from '@nestjs/common';

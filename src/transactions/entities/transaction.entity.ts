@@ -5,7 +5,10 @@ import {
   AllowNull,
   PrimaryKey,
   DataType,
+  ForeignKey,
+  BelongsTo,
 } from 'sequelize-typescript';
+import { Account } from 'src/accounts/entities/account.entity';
 
 export enum TransactionCategory {
   CATEGORY1 = 'category1',
@@ -31,6 +34,7 @@ interface TransactionAttributes {
   category: TransactionCategory;
   amount: number;
   type: string;
+  account_id: string;
 }
 
 type TransactionCreationAttributes = Omit<TransactionAttributes, 'id'>; // o ID é gerado automaticamente
@@ -49,6 +53,7 @@ export class Transaction
   id: string;
 
   @Column({ allowNull: false })
+  //payment_date: string;
   payment_date: Date;
 
   @Column({ allowNull: false })
@@ -64,5 +69,17 @@ export class Transaction
   amount: number;
 
   @Column({ allowNull: false })
-  type: string;
+  type: TransactionType;
+  //type: string;
+
+  @ForeignKey(() => Account)
+  @Column({
+    type: DataType.UUID,
+    defaultValue: DataType.UUIDV4,
+    allowNull: false,
+  })
+  account_id: string;
+
+  @BelongsTo(() => Account)
+  account: Account;
 }
