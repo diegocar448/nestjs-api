@@ -7,6 +7,7 @@ import { Transaction } from './transactions/entities/transaction.entity';
 import { TransactionsModule } from './transactions/transactions.module';
 import { Account } from './accounts/entities/account.entity';
 import { AccountsModule } from './accounts/accounts.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { AccountsModule } from './accounts/accounts.module';
     }),
     TransactionsModule,
     AccountsModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],

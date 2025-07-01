@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   Default,
 } from 'sequelize-typescript';
-//import { ToNumber } from '../../common/db/to-number.decorator';
+import { ToNumber } from 'src/common/db/to-number.decorator';
 
 interface AccountAttributes {
   id: string;
@@ -36,7 +36,7 @@ export class Account
   @Column({ allowNull: false })
   name: string;
 
-  //@ToNumber
+  @ToNumber
   @Default(0)
   @Column({ type: DataType.DECIMAL(10, 2), allowNull: false })
   balance: number;
