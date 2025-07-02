@@ -1,31 +1,9 @@
-# Arquitetura distribuida
+# Open ID Connect
 
-## Descrição
+# Oauth - Autorização | Autenticação
 
-Keycloak
+Requisição -> Nest -> Keycloak -> Controller -> Resposta
 
-## Rodar a aplicação
+JWT -> assinatura RSA - chave publica(Quem ter a chave pública consegue saber se o token é valido) | chave privada(ficará no Keycloak, quem tiver ela pode emitir um novo token)
 
-### Configurar /etc/hosts
-
-A comunicação entre as aplicações se dá de forma direta através da rede da máquina.
-Para isto é necessário configurar um endereços que todos os containers Docker consigam acessar.
-
-Acrescente no seu /etc/hosts (para Windows o caminho é C:\Windows\system32\drivers\etc\hosts):
-```
-127.0.0.1 host.docker.internal tenant1.docker.internal tenant2.docker.internal
-```
-Em todos os sistemas operacionais é necessário abrir o programa para editar o *hosts* como Administrator da máquina ou root.
-
-Execute os comandos:
-
-```
-docker-compose up
-```
-
-Acesse http://localhost:8080.
-
-O Keycloak já carregará com todos os dados de realm e clients usados nas aulas.
-
-
-
+Quem tive a chave publica consegue validar o token sem precisar buscar no Keycloak
