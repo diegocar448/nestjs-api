@@ -1,14 +1,16 @@
-version: "3"
+version: "3.8"
 
 services:
-  app:
-    image: jboss/keycloak:15.0.0
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    # 1. É necessário adicionar um comando para iniciar o servidor
+    command: ["start-dev"]
     environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
-      - KEYCLOAK_IMPORT=/tmp/realm-export.json
-      - DB_VENDOR=h2
+      # 2. As variáveis de usuário/senha foram renomeadas
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
     volumes: 
-      - ./realm-export.json:/tmp/realm-export.json
+      # 3. O caminho para importação do realm mudou
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json
     ports:
       - 8080:8080
